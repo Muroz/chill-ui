@@ -1,7 +1,5 @@
 name: Build and Deploy storybook
-on:
-  push:
-    paths: ["src/components/**"]
+on: [push]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -17,6 +15,5 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: main # The branch the action should deploy to.
           FOLDER: docs # The folder that the build-storybook script generates files.
