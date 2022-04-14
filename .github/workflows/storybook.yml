@@ -16,4 +16,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
           BRANCH: main # The branch the action should deploy to.
-          FOLDER: docs # The folder that the build-storybook script generates files.
+          FOLDER: temp-docs # The folder that the build-storybook script generates files.
+          TARGET_FOLDER: docs
