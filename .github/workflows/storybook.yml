@@ -11,10 +11,11 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm run build-storybook
+          npm run build-pages
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.0
         with:
-          BRANCH: main # The branch the action should deploy to.
-          FOLDER: temp-docs # The folder that the build-storybook script generates files.
-          TARGET_FOLDER: docs
+          branch: main # The branch the action should deploy to.
+          folder: temp-docs # The folder that the build-storybook script generates files.
+          clean: true 
+          target-folder: docs
