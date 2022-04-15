@@ -1,9 +1,11 @@
 name: Build and Deploy storybook
-on: [push]
+on:
+  push:
+    paths: ["stories/**", "src/components/**"]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Checkout
         uses: actions/checkout@v3 # Docs: https://github.com/actions/checkout
         with:
@@ -13,9 +15,9 @@ jobs:
           npm install
           npm run build-pages
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        uses: JamesIves/github-pages-deploy-action@v4.3.0 # Docs: https://github.com/JamesIves/github-pages-deploy-action
         with:
           branch: main # The branch the action should deploy to.
           folder: temp-docs # The folder that the build-storybook script generates files.
-          clean: true 
+          clean: true
           target-folder: docs
