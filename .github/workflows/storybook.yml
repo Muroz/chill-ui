@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-    paths: ["src/components/**"]
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -14,12 +14,12 @@ jobs:
           persist-credentials: false
       - name: Install and Build
         run: |
-          npm install
+          npm ci
           npm run build-pages
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.0 # Docs: https://github.com/JamesIves/github-pages-deploy-action
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: docs # The folder that the build-storybook script generates files.
+          folder: storybook-static # The folder that the build-storybook script generates files.
           # clean: true
           # target-folder: docs

@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
-    "build-pages": "build-storybook -o docs"
+    "build-pages": "build-storybook"
   },
   "author": "Diego Z <diego@zuluaga.io>",
   "license": "ISC",
