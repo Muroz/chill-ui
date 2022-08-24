@@ -17,9 +17,9 @@ jobs:
           npm install
           npm run build-pages
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.0 # Docs: https://github.com/JamesIves/github-pages-deploy-action
+        uses: JamesIves/github-pages-deploy-action@v3.6.2 # Docs: https://github.com/JamesIves/github-pages-deploy-action
         with:
-          branch: main # The branch the action should deploy to.
+          branch: gh-pages # The branch the action should deploy to.
           folder: temp-docs # The folder that the build-storybook script generates files.
-          clean: true
-          target-folder: docs
+          # clean: true
+          # target-folder: docs
