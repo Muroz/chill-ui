@@ -7,6 +7,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muroz/chill-ui.git"
+  },
   "publishConfig": {
     "@muroz:registry": "https://npm.pkg.github.com"
   },
