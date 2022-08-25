@@ -1,6 +1,6 @@
 name: Chill-UI
 
-on
+on:
   release:
     types: [created]
 
