@@ -13,7 +13,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "rollup -c",
+    "build": "rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-pages": "build-storybook"
   },
