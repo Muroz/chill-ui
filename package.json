@@ -4,6 +4,7 @@
   "description": "React component library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -14,7 +15,6 @@
   "publishConfig": {
     "@muroz:registry": "https://npm.pkg.github.com"
   },
-  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",

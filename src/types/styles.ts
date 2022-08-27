@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 
-import { ThemeCategoryKeys } from "../types/styled";
+import { ThemeCategoryKeys } from "./themes";
 
 export type valueEntry = [
   ThemeCategoryKeys,
