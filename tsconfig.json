@@ -6,7 +6,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "preserveConstEnums": true,
-    "target": "es2018",
+    "target": "es5",
 
     /* Emit */
     "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
