@@ -58,8 +58,8 @@ export const StyledCheckbox = styled.div<CheckboxStyleProps>`
   height: 16px;
   background: ${(props) =>
     props.checked
-      ? props.backgroundColor || "#87ceeb"
-      : props.unCheckedBackgroundColor || "transparent"};
+      ? props.theme.colors.primary
+      : props.theme.colors.background};
   border: 1px solid #b2beb5;
   border-radius: 3px;
   transition: all 150ms;

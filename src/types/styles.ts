@@ -203,6 +203,14 @@ export interface BorderProps extends BaseThemeProps {
    * Border radius modifier
    */
   borderRadius?: string | number;
+  /**
+   * Border color
+   */
+  borderColor?: string;
+  /**;
+   * Border style
+   */
+  borderStyle?: string;
 }
 
 export interface LayoutProps extends BaseThemeProps {

@@ -147,12 +147,14 @@ export const space = (props: SpaceProps) => {
 };
 
 export const border = (props: BorderProps) => {
-  const { border, borderRadius, theme } = props;
+  const { border, borderRadius, borderColor, borderStyle, theme } = props;
 
   // TO BE DEFINED AS NOT ALL ITEMS SHOULD HAVE DEFAULTS IN THE THEME
   const styledObject = getValue(theme, [
     ["space", "border", border],
-    ["space", "borderRadius", borderRadius]
+    ["shape", "borderRadius", borderRadius],
+    ["colors", "borderColor", borderColor],
+    ["shape", "borderStyle", borderStyle]
   ]);
 
   return styledObject;

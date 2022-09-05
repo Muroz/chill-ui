@@ -15,11 +15,10 @@ const TextButton: React.FC<ButtonProps> = ({
 };
 
 TextButton.defaultProps = {
-  backgroundColor: "white",
-  color: "#87ceeb",
-  padding: "1rem",
-  fontWeight: "bold",
-  fontSize: "1rem"
+  backgroundColor: "background",
+  color: "primary",
+  padding: "s",
+  preset: 'button'
 };
 
 export default TextButton;
