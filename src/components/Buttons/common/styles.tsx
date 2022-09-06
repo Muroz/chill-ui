@@ -27,4 +27,10 @@ export const ButtonContainer = styled.button<ButtonStyleProps>`
   ${space}
   ${border}
   ${layout}
+
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: 0 5px 15px -10px rgb(31 18 53 / 60%);
+  }
 `;

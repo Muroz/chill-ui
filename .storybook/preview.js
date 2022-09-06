@@ -27,6 +27,6 @@ export const parameters = {
   }
 };
 
-const themes = [defaultTheme];
+const themes = [{ chillUI: defaultTheme, name: "Default" }];
 
 addDecorator(withThemesProvider(themes), ThemeProvider);

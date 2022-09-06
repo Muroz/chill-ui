@@ -15,11 +15,10 @@ const FlatButton: React.FC<ButtonProps> = ({
 };
 
 FlatButton.defaultProps = {
-  backgroundColor: "#87ceeb",
-  color: "white",
-  padding: "1rem",
-  fontWeight: "bold",
-  fontSize: "1rem"
+  bg: "primary",
+  color: "buttonText",
+  padding: "s",
+  preset: "button"
 };
 
 export default FlatButton;

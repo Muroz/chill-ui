@@ -15,13 +15,13 @@ const OutlineButton: React.FC<ButtonProps> = ({
 };
 
 OutlineButton.defaultProps = {
-  backgroundColor: "white",
-  color: "#87ceeb",
-  padding: "1rem",
-  fontWeight: "bold",
-  fontSize: "1rem",
+  backgroundColor: "background",
+  color: "primary",
+  border: "1px solid",
+  borderColor: "primary",
   borderRadius: "5px",
-  border: "1px solid #87ceeb"
+  padding: "s",
+  preset: "button",
 };
 
 export default OutlineButton;

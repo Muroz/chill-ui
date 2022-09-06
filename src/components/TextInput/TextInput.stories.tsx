@@ -16,4 +16,7 @@ const Template: ComponentStory<typeof TextInput> = (args) => (
 
 export const Default = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Default.args = {};
+Default.args = {
+  label: 'Default',
+  required: true
+};

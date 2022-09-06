@@ -5,6 +5,14 @@ export const FlatButtonContainer = styled(ButtonContainer)`
   border: none;
 
   &:hover {
-    background: ${props => `${props.bg}CC`};
+    background: ${({ bg, backgroundColor, theme }) => {
+      const definedBackgroundColor = bg || backgroundColor;
+
+      if (definedBackgroundColor) {
+        return `${
+          theme.chillUI.colors[definedBackgroundColor] || definedBackgroundColor
+        }CC`;
+      }
+    }};
   }
 `;

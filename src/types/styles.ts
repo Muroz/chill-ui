@@ -5,8 +5,7 @@ import { ThemeCategoryKeys } from "./themes";
 export type valueEntry = [
   ThemeCategoryKeys,
   string,
-  string | number | undefined,
-  string?
+  string | number | undefined
 ];
 
 export interface BaseThemeProps {
@@ -203,6 +202,14 @@ export interface BorderProps extends BaseThemeProps {
    * Border radius modifier
    */
   borderRadius?: string | number;
+  /**
+   * Border color
+   */
+  borderColor?: string;
+  /**;
+   * Border style
+   */
+  borderStyle?: string;
 }
 
 export interface LayoutProps extends BaseThemeProps {

@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
-import Header from "./index";
+import H1 from "./H1";
 import {
   colorControls,
   typographyControls,
@@ -9,20 +9,20 @@ import {
 } from "../../../utils/storybook/controls";
 
 const Story = {
-  title: "Typography/Header",
-  component: Header,
+  title: "Typography/H1",
+  component: H1,
   argTypes: {
     ...colorControls,
     ...typographyControls,
     ...spaceControls
   }
-} as ComponentMeta<typeof Header>;
+} as ComponentMeta<typeof H1>;
 
 export default Story;
 
-const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
+const Template: ComponentStory<typeof H1> = (args) => <H1 {...args} />;
 
-export const header = Template.bind({});
-header.args = {
-  label: "Default"
+export const h1 = Template.bind({});
+h1.args = {
+  children: "Default"
 };
