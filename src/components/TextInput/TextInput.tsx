@@ -4,7 +4,6 @@ import { StyledWrapper, StyledLabel, StyledInput, ErrorLabel } from "./styles";
 export interface TextInputProps extends ComponentPropsWithoutRef<"input"> {
   label?: string;
   error?: string;
-  name?: string
 }
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
@@ -15,7 +14,6 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           <StyledInput
             id={name}
             hasError={!!error}
-            // placeholder=" "
             {...props}
             ref={ref}
           />

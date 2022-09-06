@@ -28,7 +28,6 @@ interface TypographyEntry {
 
 export interface IThemeTypography {
   [index: string]: string | TypographyEntry;
-  fontFamily: string;
   h1: TypographyEntry;
   h2: TypographyEntry;
   body: TypographyEntry;
@@ -41,6 +40,7 @@ export interface IThemeSpace {
 }
 
 export interface IThemeShape {
+  [index: string]: string | number;
   borderRadius: string | number;
 }
 
@@ -55,3 +55,10 @@ export type ThemeCategoryKeys = keyof typeof ThemeCategories;
 export type ThemeCategoryFields = {
   [key in ThemeCategoryKeys]: any
 };
+
+export type ChillUITheme = {
+  colors: IThemeColors;
+  typography: IThemeTypography;
+  space: IThemeSpace;
+  shape: IThemeShape;
+}

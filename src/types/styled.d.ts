@@ -1,14 +1,9 @@
 import {
-  ThemeCategoryFields,
-  IThemeColors,
-  IThemeTypography,
-  IThemeSpace
+  ChillUITheme
 } from "./themes";
 
 declare module "styled-components" {
-  export interface DefaultTheme extends ThemeCategoryFields {
-    colors: IThemeColors;
-    typography: IThemeTypography;
-    space: IThemeSpace;
+  export interface DefaultTheme {
+    chillUI: ChillUITheme
   }
 }

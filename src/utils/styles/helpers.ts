@@ -1,5 +1,3 @@
-import { DefaultTheme } from "styled-components";
-
 import {
   valueEntry,
   TypographyProps,
@@ -8,12 +6,13 @@ import {
   BorderProps,
   LayoutProps
 } from "../../types/styles";
+import { ChillUITheme } from "../../types/themes";
 
-const getValue = (theme?: DefaultTheme, values?: valueEntry[]) => {
+const getValue = (theme?: ChillUITheme, values?: valueEntry[]) => {
   const stylesObject: any = {};
   values &&
     values.forEach((entry) => {
-      const [category, key, value, fallback] = entry;
+      const [category, key, value] = entry;
       if (!theme) {
         if (value) {
           return { [key]: value };
@@ -22,7 +21,7 @@ const getValue = (theme?: DefaultTheme, values?: valueEntry[]) => {
       }
 
       if (value) {
-        const themeValue = theme?.[category]?.[value];
+        const themeValue = theme[category]?.[value];
 
         if (themeValue) {
           stylesObject[key] = themeValue;
@@ -30,13 +29,6 @@ const getValue = (theme?: DefaultTheme, values?: valueEntry[]) => {
         }
 
         stylesObject[key] = value;
-        return;
-      } else if (fallback) {
-        const fallbackValue = theme?.[category]?.[fallback];
-
-        if (fallbackValue) {
-          stylesObject[key] = fallbackValue;
-        }
         return;
       }
 
@@ -46,7 +38,6 @@ const getValue = (theme?: DefaultTheme, values?: valueEntry[]) => {
   return stylesObject;
 };
 
-// TODO: define presets
 // TODO: update getValue to only rewrite values if defined
 export const typography = (props: TypographyProps) => {
   const {
@@ -61,11 +52,11 @@ export const typography = (props: TypographyProps) => {
     preset
   } = props;
 
-  const { preset: presetObject } = getValue(theme, [
+  const { preset: presetObject } = getValue(theme?.chillUI, [
     ["typography", "preset", preset]
   ]);
 
-  const styleObject = getValue(theme, [
+  const styleObject = getValue(theme?.chillUI, [
     ["typography", "fontFamily", fontFamily],
     ["typography", "fontSize", fontSize],
     ["typography", "fontWeight", fontWeight],
@@ -81,9 +72,9 @@ export const typography = (props: TypographyProps) => {
 export const color = (props: ColorProps) => {
   const { theme, bg, backgroundColor, color } = props;
 
-  const styleObject = getValue(theme, [
-    ["colors", "color", color, "main"],
-    ["colors", "backgroundColor", bg || backgroundColor, "secondary"]
+  const styleObject = getValue(theme?.chillUI, [
+    ["colors", "color", color],
+    ["colors", "backgroundColor", bg || backgroundColor]
   ]);
 
   return styleObject;
@@ -122,7 +113,7 @@ export const space = (props: SpaceProps) => {
     py
   } = props;
 
-  const styledObject = getValue(theme, [
+  const styledObject = getValue(theme?.chillUI, [
     ["space", "margin", m || margin],
     ["space", "marginRight", mx || marginX],
     ["space", "marginLeft", mx || marginX],
@@ -150,7 +141,7 @@ export const border = (props: BorderProps) => {
   const { border, borderRadius, borderColor, borderStyle, theme } = props;
 
   // TO BE DEFINED AS NOT ALL ITEMS SHOULD HAVE DEFAULTS IN THE THEME
-  const styledObject = getValue(theme, [
+  const styledObject = getValue(theme?.chillUI, [
     ["space", "border", border],
     ["shape", "borderRadius", borderRadius],
     ["colors", "borderColor", borderColor],
@@ -173,7 +164,7 @@ export const layout = (props: LayoutProps) => {
   } = props;
 
   // TO BE DEFINED AS NOT ALL ITEMS SHOULD HAVE DEFAULTS IN THE THEME
-  const styledObject = getValue(theme, [
+  const styledObject = getValue(theme?.chillUI, [
     ["space", "width", width],
     ["space", "height", height],
     ["space", "minWidth", minWidth],

@@ -14,7 +14,7 @@ export const StyledWrapper = styled.div<StyleProps>`
 
 export const StyledLabel = styled.label<StyleProps>`
   background: white;
-  color: ${({ hasError, theme }) => hasError && theme.colors.error};
+  color: ${({ hasError, theme }) => hasError && theme.chillUI.colors.error};
   left: 1rem;
   padding: 0 0.5rem 0 0.5rem;
   position: absolute;
@@ -24,7 +24,7 @@ export const StyledLabel = styled.label<StyleProps>`
 
   ${StyledWrapper}:focus-within & {
     color: ${({ hasError, theme }) =>
-      hasError ? theme.colors.error : theme.colors.primary};
+      hasError ? theme.chillUI.colors.error : theme.chillUI.colors.primary};
     transform: translate(-0.5rem, -1.5rem) scale(0.9);
   }
 `;
@@ -32,7 +32,7 @@ export const StyledLabel = styled.label<StyleProps>`
 export const StyledInput = styled.input<StyleProps>`
   border: 1px solid
     ${({ hasError, theme }) =>
-      hasError ? theme.colors.error : theme.colors.baseGray};
+      hasError ? theme.chillUI.colors.error : theme.chillUI.colors.baseGray};
   border-radius: 2px;
   font-family: inherit;
   font-size: inherit;
@@ -43,18 +43,18 @@ export const StyledInput = styled.input<StyleProps>`
   &:focus {
     border: 1px solid
       ${({ hasError, theme }) =>
-        hasError ? theme.colors.error : theme.colors.primary};
+        hasError ? theme.chillUI.colors.error : theme.chillUI.colors.primary};
 
     & + ${StyledLabel} {
       color: ${({ hasError, theme }) =>
-        hasError ? theme.colors.error : theme.colors.primary};
+        hasError ? theme.chillUI.colors.error : theme.chillUI.colors.primary};
       transform: translate(-0.5rem, -1.5rem) scale(0.9);
     }
   }
 `;
 
 export const ErrorLabel = styled.p`
-  color: ${(props) => props.theme.colors.error};
+  color: ${(props) => props.theme.chillUI.colors.error};
   margin: 0.5rem 1.5rem;
   transform-origin: 0;
   transform: scale(0.8);

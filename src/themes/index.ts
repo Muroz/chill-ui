@@ -1,6 +1,6 @@
-import { DefaultTheme } from "styled-components";
+import { ChillUITheme } from "../types/themes";
 
-const defaultTheme: DefaultTheme = {
+const defaultTheme: ChillUITheme = {
   colors: {
     primary: "#3DA9FC",
     secondary: "#90B4CE",
@@ -17,7 +17,6 @@ const defaultTheme: DefaultTheme = {
     buttonText: '#FFFFFE'
   },
   typography: {
-    fontFamily: "helvetica",
     h1: {
       fontFamily: "sans-serif",
       fontWeight: 700,
@@ -46,19 +45,6 @@ const defaultTheme: DefaultTheme = {
     }
   },
   space: {
-    "spacing-01": "0.125rem",
-    "spacing-02": "0.25rem",
-    "spacing-03": "0.5rem",
-    "spacing-04": "0.75rem",
-    "spacing-05": "1rem",
-    "spacing-06": "1.5rem",
-    "spacing-07": "2rem",
-    "spacing-08": "2.5rem",
-    "spacing-09": "3rem",
-    "spacing-10": "4rem",
-    "spacing-11": "5rem",
-    "spacing-12": "6rem",
-    "spacing-13": "10rem",
     "3xs": "0.25rem",
     "2xs": '0.5rem',
     'xs': '0.75rem',

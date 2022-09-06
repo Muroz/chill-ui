@@ -58,8 +58,8 @@ export const StyledCheckbox = styled.div<CheckboxStyleProps>`
   height: 16px;
   background: ${(props) =>
     props.checked
-      ? props.theme.colors.primary
-      : props.theme.colors.background};
+      ? props.theme.chillUI.colors.primary
+      : props.theme.chillUI.colors.background};
   border: 1px solid #b2beb5;
   border-radius: 3px;
   transition: all 150ms;
