@@ -1,5 +1,5 @@
 export * from './Buttons';
-export * from './Typography/H1';
+export * from './Typography';
 
 export { default as Checkbox } from './Checkbox';
 
