@@ -4,6 +4,7 @@ on:
     inputs:
       version:
         description: Release version
+        default: patch
         required: true
 
 jobs:
@@ -23,7 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: git tag ${{ github.event.inputs.version }}
+      - run: git version ${{ github.event.inputs.version }}
+      - uses: codex-team/action-nodejs-package-info@v1
+      - run: git tag ${{ steps.package.outputs.version }}
+      - run: git push origin main --tags
 
   create-release:
     name: Create new release
@@ -33,10 +37,11 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v3
+      - uses: codex-team/action-nodejs-package-info@v1
       - uses: ncipollo/release-action@v1
         with:
           generateReleaseNotes: true
-          tag: ${{ github.event.inputs.version }}
+          tag: ${{ steps.package.outputs.version }}
           token: ${{ secrets.GPR_AUTH_TOKEN }}
 
   publish-gpr:
@@ -55,4 +60,4 @@ jobs:
       - run: npm i
       - run: npm run build
       - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GPR_AUTH_TOKEN }}
-      - run: npm publish ${{ secrets.PACKAGE_NAME}}@${{ github.event.inputs.version }}
+      - run: npm publish
