@@ -30,5 +30,5 @@ const Template: ComponentStory<typeof TextButton> = (args) => (
 
 export const textButton = Template.bind({});
 textButton.args = {
-  label: "Default"
+  children: "Default"
 };
