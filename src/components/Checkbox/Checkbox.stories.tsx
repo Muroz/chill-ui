@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Checkbox from "./Checkbox";
 
 const Story = {
-  title: "Interactions/Checkbox",
+  title: "Interactions/Forms/Checkbox",
   component: Checkbox,
   argTypes: {
     backgroundColor: { control: "color" }
@@ -17,6 +17,4 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
   <Checkbox {...args} />
 );
 
-export const Default = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Default.args = {};
+export const checkbox = Template.bind({});

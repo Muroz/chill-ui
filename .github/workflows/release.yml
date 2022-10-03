@@ -1,0 +1,57 @@
+name: Release and publish package
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version
+        required: true
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm i
+      - run: npm run build
+
+  create-tag:
+    name: Create new tag
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: git tag ${{ github.event.inputs.version }}
+
+  create-release: 
+    name: Create new release
+    needs: create-tag
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ncipollo/release-action@v1
+      with:
+        generateReleaseNotes: true
+        tag: ${{ github.event.inputs.version }}
+        token: ${{ secrets.YOUR_GITHUB_TOKEN }}
+
+  publish-gpr:
+    name: Publish to github package registry
+    needs: create-release
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: npm i
+      - run: npm run build
+      - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GPR_AUTH_TOKEN }}
+      - run: npm publish ${{ secrets.PACKAGE_NAME}}@${{ github.event.inputs.version }}

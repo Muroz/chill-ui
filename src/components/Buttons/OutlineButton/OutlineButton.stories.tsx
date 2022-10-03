@@ -30,5 +30,5 @@ const Template: ComponentStory<typeof OutlineButton> = (args) => (
 
 export const outlineButton = Template.bind({});
 outlineButton.args = {
-  label: "Default"
+  children: "Default"
 };

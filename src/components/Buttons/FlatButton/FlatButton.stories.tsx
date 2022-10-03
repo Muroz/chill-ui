@@ -30,5 +30,5 @@ const Template: ComponentStory<typeof FlatButton> = (args) => (
 
 export const flatButton = Template.bind({});
 flatButton.args = {
-  label: "Default"
+  children: "Default"
 };

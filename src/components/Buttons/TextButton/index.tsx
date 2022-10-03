@@ -3,13 +3,13 @@ import { TextButtonContainer } from "./styles";
 import { ButtonProps } from "../common/types";
 
 const TextButton: React.FC<ButtonProps> = ({
-  label,
+  children,
   onClick,
   ...styleProps
 }) => {
   return (
     <TextButtonContainer onClick={onClick} {...styleProps}>
-      {label}
+      {children}
     </TextButtonContainer>
   );
 };

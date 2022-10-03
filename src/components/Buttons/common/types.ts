@@ -1,12 +1,6 @@
+import { PropsWithChildren, ComponentPropsWithRef } from "react";
 import { ButtonStyleProps } from "./styles";
 
-export interface ButtonProps extends ButtonStyleProps {
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-}
+export interface ButtonProps
+  extends PropsWithChildren<ButtonStyleProps>,
+    ComponentPropsWithRef<"button"> {}

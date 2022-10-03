@@ -3,13 +3,13 @@ import { FlatButtonContainer } from "./styles";
 import { ButtonProps } from "../common/types";
 
 const FlatButton: React.FC<ButtonProps> = ({
-  label,
+  children,
   onClick,
   ...styleProps
 }) => {
   return (
     <FlatButtonContainer onClick={onClick} {...styleProps}>
-      {label}
+      {children}
     </FlatButtonContainer>
   );
 };

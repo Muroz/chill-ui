@@ -1,31 +1,38 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface StyleProps {
   hasError?: boolean;
 }
 
+const labelMixin = css<StyleProps>`
+  color: ${({ hasError, theme }) =>
+    hasError ? theme.chillUI.colors.error : theme.chillUI.colors.primary};
+  transform: translate(0, -1.5rem);
+  font-size: 14px;
+`;
+
 export const StyledWrapper = styled.div<StyleProps>`
   display: flex;
   flex-direction: column-reverse;
-  position: relative;
   font-family: sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  position: relative;
 `;
 
 export const StyledLabel = styled.label<StyleProps>`
   background: white;
   color: ${({ hasError, theme }) => hasError && theme.chillUI.colors.error};
-  left: 1rem;
-  padding: 0 0.5rem 0 0.5rem;
+  left: 0.5rem;
+  padding: 0 0.2rem;
+  margin: 0 0.3rem;
   position: absolute;
   top: 1rem;
-  transition: transform 0.4s ease-in-out, padding 1s;
+  transition: transform 0.2s ease-in-out, padding 1s, font-size 0.2s;
   transform-origin: 0;
 
   ${StyledWrapper}:focus-within & {
-    color: ${({ hasError, theme }) =>
-      hasError ? theme.chillUI.colors.error : theme.chillUI.colors.primary};
-    transform: translate(-0.5rem, -1.5rem) scale(0.9);
+    ${labelMixin}
   }
 `;
 
@@ -46,9 +53,7 @@ export const StyledInput = styled.input<StyleProps>`
         hasError ? theme.chillUI.colors.error : theme.chillUI.colors.primary};
 
     & + ${StyledLabel} {
-      color: ${({ hasError, theme }) =>
-        hasError ? theme.chillUI.colors.error : theme.chillUI.colors.primary};
-      transform: translate(-0.5rem, -1.5rem) scale(0.9);
+      ${labelMixin}
     }
   }
 `;

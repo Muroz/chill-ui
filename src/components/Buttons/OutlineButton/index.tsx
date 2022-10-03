@@ -3,13 +3,13 @@ import { OutlineButtonContainer } from "./styles";
 import { ButtonProps } from "../common/types";
 
 const OutlineButton: React.FC<ButtonProps> = ({
-  label,
+  children,
   onClick,
   ...styleProps
 }) => {
   return (
     <OutlineButtonContainer onClick={onClick} {...styleProps}>
-      {label}
+      {children}
     </OutlineButtonContainer>
   );
 };
